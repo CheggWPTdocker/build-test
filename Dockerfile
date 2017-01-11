@@ -1,4 +1,4 @@
-FROM cheggwpt/nginx-php7:latest
+FROM cheggwpt/nginx-php7:0.0.7
 MAINTAINER jgilley@chegg.com
 
 ENV APP_ENV dockerfile
