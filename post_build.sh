@@ -2,5 +2,5 @@
 
 echo "Attempting build"
 cd /webroot
-/usr/bin/php ./composer.phar install --no-dev -vvv
+/usr/bin/php ./composer.phar install --no-interaction -vvv
 
