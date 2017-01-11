@@ -7,7 +7,7 @@ ENV APP_ENV dockerfile
 COPY ./ /webroot/
 
 # Copy the nginx config into place
-COPY /webroot/default.conf /etc/nginx/sites-enabled/
+RUN cp /webroot/default.conf /etc/nginx/sites-enabled/
 
 # lets try a build script to see when this happens
 RUN mkdir /docker-init.d && \
