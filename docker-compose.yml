@@ -1,0 +1,11 @@
+version: "2"
+services:
+    app:
+        build:
+            dockerfile: ./Dockerfile
+            context: .
+        ports:
+            - 80:80
+        environment:
+          # app envs
+          - APP_ENV=docker-compose
