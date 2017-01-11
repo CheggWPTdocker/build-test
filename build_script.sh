@@ -23,5 +23,4 @@ dockerfile
 Docker Buildscript APP_ENV contains:
 EOF
 
-
 echo "end writing test.php"

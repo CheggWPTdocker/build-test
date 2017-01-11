@@ -1,4 +1,4 @@
-FROM cheggwpt/nginx-php7:0.0.5
+FROM cheggwpt/nginx-php7:latest
 MAINTAINER jgilley@chegg.com
 
 ENV APP_ENV dockerfile
@@ -16,11 +16,6 @@ RUN mkdir /docker-init.d && \
     cp /webroot/build_script.sh /docker-init.d/ && \
     chmod a+x /docker-init.d/*.sh
 
-# Clean up stuff
-# RUN rm -rf ./composer.lock
-
-# do this env thing
-RUN ./env_script.sh
-
-VOLUME /webroot
+# Do Install 
+# RUN /usr/bin/php ./composer.phar install --no-interaction --no-dev --no-scripts --no-progress -vvv -o
 
