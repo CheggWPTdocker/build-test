@@ -18,4 +18,5 @@ RUN mkdir /docker-init.d && \
 
 # Do Install 
 # RUN /usr/bin/php ./composer.phar install --no-interaction --no-dev --no-scripts --no-progress -vvv -o
+RUN ./post_build.sh
 
