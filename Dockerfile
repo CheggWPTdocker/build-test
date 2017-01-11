@@ -15,9 +15,7 @@ RUN mkdir /docker-init.d && \
     chmod a+x /docker-init.d/*.sh
 
 # Clean up stuff
-RUN rm -rf /webroot/vendor && \
-	rm -rf /webroot/web/app_env && \
-	rm -rf /webroot/composer.lock
+RUN rm -rf /webroot/composer.lock
 
 # do this env thing
 RUN /webroot/env_script.sh
