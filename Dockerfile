@@ -3,11 +3,13 @@ MAINTAINER jgilley@chegg.com
 
 ENV APP_ENV dockerfile
 
+WORKDIR /webroot
+
 # Copy over the project
-COPY ./ /webroot/
+COPY . ./
 
 # Copy the nginx config into place
-RUN cp /webroot/default.conf /etc/nginx/sites-enabled/
+RUN cp ./default.conf /etc/nginx/sites-enabled/
 
 # lets try a build script to see when this happens
 RUN mkdir /docker-init.d && \
@@ -15,8 +17,10 @@ RUN mkdir /docker-init.d && \
     chmod a+x /docker-init.d/*.sh
 
 # Clean up stuff
-RUN rm -rf /webroot/composer.lock
+# RUN rm -rf ./composer.lock
 
 # do this env thing
-RUN /webroot/env_script.sh
+RUN ./env_script.sh
+
+VOLUME /webroot
 
