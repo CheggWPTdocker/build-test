@@ -1,5 +1,5 @@
 #!/bin/sh
 
-echo "writing test.php"
+echo "writing /webroot/web/app_env"
 echo $APP_ENV > /webroot/web/app_env
-echo "end writing test.php"
+echo "end writing /webroot/web/app_env"

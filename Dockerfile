@@ -10,18 +10,29 @@ COPY ./ /webroot/
 WORKDIR /webroot
 
 # Copy the nginx config into place
-COPY ./default.conf /etc/nginx/sites-enabled/
+RUN cp ./default.conf /etc/nginx/sites-enabled/
 
 # lets try a build script to see when this happens
 RUN mkdir /docker-init.d && \
     cp ./build_script.sh /docker-init.d/ && \
     chmod a+x /docker-init.d/*.sh
 
-RUN rm -rf vendor
+RUN whoami
 
-RUN php composer.phar install --no-dev -vvv
+USER root
 
-RUN env_script.sh
+RUN whoami
+
+RUN whoami && \
+	./env_script.sh
+
+RUN whoami && \
+	pwd && \
+	rm -rf ./vendor && \
+	php ./composer.phar install --no-dev -vvv && \
+	dir ./vendor
+	
+
 
 
 
