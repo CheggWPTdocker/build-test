@@ -1,7 +1,7 @@
 FROM cheggwpt/nginx-php7:0.0.7
 MAINTAINER jgilley@chegg.com
 
-ARG APP_ENV dockerfile-build-arg
+ARG APP_ENV
 
 ENV APP_ENV dockerfile
 
