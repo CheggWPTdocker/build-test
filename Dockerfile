@@ -1,7 +1,7 @@
 FROM cheggwpt/nginx-php7:0.0.7
 MAINTAINER jgilley@chegg.com
 
-ARG APP_ENV
+ARG APP_BUILD_ENV
 
 ENV APP_ENV dockerfile
 
@@ -15,7 +15,7 @@ RUN cp ./default.conf /etc/nginx/sites-enabled/
 
 # lets try a build script to see when this happens
 RUN mkdir /docker-init.d && \
-    cp /webroot/build_script.sh /docker-init.d/ && \
+    cp /webroot/post_boot.sh /docker-init.d/ && \
     chmod a+x /docker-init.d/*.sh
 
 # Do Install 

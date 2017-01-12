@@ -5,7 +5,7 @@ services:
       dockerfile: ./Dockerfile
       context: .
       args:
-        APP_ENV: docker-compose-build-arg
+        APP_BUILD_ENV: docker-compose-build-arg
     ports:
       - 80:80
     environment:

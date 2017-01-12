@@ -1,7 +1,7 @@
 #!/bin/sh
-
-echo "Attempting build with $APP_ENV"
-echo $APP_ENV > /webroot/web/app_env
-echo "not building because testing without"
-# /usr/bin/php ./composer.phar install --no-interaction --no-dev --no-scripts --no-progress -vvv -o
-echo "end build with $APP_ENV"
+echo "*** POST BUILD ***"
+echo "post_build app_build_env: $APP_BUILD_ENV"
+echo "post_build app_env: $APP_ENV"
+echo "post_build app_build_env: $APP_BUILD_ENV" > /webroot/web/app_env
+echo "post_build app_env: $APP_ENV" >> /webroot/web/app_env
+echo "*** POST BUILD END ***"
