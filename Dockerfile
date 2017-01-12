@@ -1,6 +1,8 @@
 FROM cheggwpt/nginx-php7:0.0.7
 MAINTAINER jgilley@chegg.com
 
+ARG APP_ENV dockerfile-build-arg
+
 ENV APP_ENV dockerfile
 
 WORKDIR /webroot
@@ -17,6 +19,6 @@ RUN mkdir /docker-init.d && \
     chmod a+x /docker-init.d/*.sh
 
 # Do Install 
-# RUN /usr/bin/php ./composer.phar install --no-interaction --no-dev --no-scripts --no-progress -vvv -o
+RUN /usr/bin/php ./composer.phar install --no-interaction --no-dev --no-scripts --no-progress -vvv -o
 RUN ./post_build.sh
 
